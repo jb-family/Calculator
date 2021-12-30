@@ -1,0 +1,61 @@
+css
+grid
+
+display:grid;
+grid-template-columns: = 열을 설정한다
+grid-template-rows: = 행을 설정한다
+
+grid-template-columns:65px 65px 65px 65px;
+= 그리드의 열을 65px의 크기로 설정하고 4개의 열로 설정할수있음
+grid-template-columns:65px 65px;
+= 65px크기로 설정하고 2개의 열이 생성됨 
+
+grid-template-columns:repeat(4, 65px);
+= 그리드의 열을 4줄로 설정하고 각 열을 65px의 크기로 설정한다는 의미
+repeat()라는 함수를 이용하여 유용하게 쓸수있음.
+
+grid-auto-rows:65px;
+= 그리드로 만든 행을 65px의 크기로 설정하는것
+
+  display: grid;
+  grid-template-columns: repeat(4, 65px);
+  grid-auto-rows: 65px;
+= 4개의 열이 생성되며 열크기65px 행크기65px 생성됨
+
+box-shadow: 1px(가로) 1px(세로) 2px(번짐) 으로 그라데이션 효과를 줄수있음
+
+.calculator form input:hover {
+ box-shadow:1px 1px 2px;
+}
+
+.calculator form input[type='text']{
+ grid-column: span 4;
+}
+=설정된 그리드의 65px의 크기를 4개합쳐놓은크기를 가짐 
+즉 span태그로 인해 inline속성을 가진 260px의 박스상자 생성되는것임 (div도 생성가능)
+
+js
+
+input type="button" value="1" onclick="document.forms.output.value+=''1">
+입력하면 1을 눌렀을때 1이 입력됨 (연속가능)
+input type="button" value="1" onclick="document.forms.output.value=''1">
+입력하면 1을 눌렀을때 한번만 1이 입력됨 (연속불가능)
+<input class="clear" type="button" value="C" onclick="document.forms.output.value=''">
+입력하면 공백이 표시됨 연속으로 할이유가 없기때문에 +미입력
+<input name="output" type="text" readonly>
+readonly를 입력해주면 읽기기능밖에 없음
+<input  class="operator result" type="button" value="=" onclick="document.forms.output.value=eval(document.forms.output.value)">
+eval을 사용하면 실제 연산과 같이 동일하게 수식적용이된다. 하지만 js에서는 사용하지않는다고 한다. (위험하다고함) 다른걸로 대체할수있는지 알아봐야함
+
+document.forms.output.value 의 의미는 document.즉 html을 가리키며 .forms는 name forms를 가르킨다. 마찬가지로 .output도 name output을 가르킨다.
+즉 document에있는 name속성을 지닌 forms안에 name속성을 지닌 output의 value(값)을 적용해라 라는의미.
+
+
+px:웹브라우저의 단위이며 크기는 고정됨 (변할수없음)
+rem:배수 (부모자식형제 x 모든것에 적용됨)
+em:부모 자식 형제에만 적용을 받고 배수는 동일함
+vw: 뷰포트 와이드의 약자 vw:1; 은 화면의크기가 500px이라고하면 vw=5px임 (크기에따라변하기때문에 반응형에 사용하기 좋음)
+vh: 뷰포트 헤이트의 약자 vh:1; 은 화면크기가 500px이라고하면 vh=5px임 (크기에따라변하기때문에 반응형에 사용하기 좋음)
+
+
+
